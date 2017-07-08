@@ -102,12 +102,9 @@ static bool servoFilterIsSet;
 #define COUNT_SERVO_RULES(rules) (sizeof(rules) / sizeof(servoMixer_t))
 // mixer rule format servo, input, rate, speed, min, max, box
 static const servoMixer_t servoMixerAirplane[] = {
-    { SERVO_FLAPPERON_1, INPUT_STABILIZED_ROLL,  100, 0, 0, 100 },
-    { SERVO_FLAPPERON_2, INPUT_STABILIZED_ROLL,  100, 0, 0, 100 },
-    { SERVO_FLAPPERON_1, INPUT_FEATURE_FLAPS,    100, 0, 0, 100 },
-    { SERVO_FLAPPERON_2, INPUT_FEATURE_FLAPS,   -100, 0, 0, 100 },
-    { SERVO_RUDDER,      INPUT_STABILIZED_YAW,   100, 0, 0, 100 },
-    { SERVO_ELEVATOR,    INPUT_STABILIZED_PITCH, 100, 0, 0, 100 },
+    { 0, INPUT_STABILIZED_ROLL,  100, 0, 0, 100 },
+    { 1,      INPUT_STABILIZED_YAW,   100, 0, 0, 100 },
+    { 2,    INPUT_STABILIZED_PITCH, 100, 0, 0, 100 },
 };
 
 static const servoMixer_t servoMixerFlyingWing[] = {
@@ -144,7 +141,7 @@ const mixerRules_t servoMixers[] = {
     { 0, 0, 0, NULL },                // MULTITYPE_OCTOX8
     { 0, 0, 0, NULL },                // MULTITYPE_OCTOFLATP
     { 0, 0, 0, NULL },                // MULTITYPE_OCTOFLATX
-    { COUNT_SERVO_RULES(servoMixerAirplane), SERVO_PLANE_INDEX_MIN, SERVO_PLANE_INDEX_MAX, servoMixerAirplane },  // * MULTITYPE_AIRPLANE
+    { COUNT_SERVO_RULES(servoMixerAirplane), 0, 2, servoMixerAirplane },  // * MULTITYPE_AIRPLANE
     { 0, 0, 0, NULL },                // * MIXER_HELI_120_CCPM -> disabled, never fully implemented in CF
     { 0, 0, 0, NULL },                // * MIXER_HELI_90_DEG -> disabled, never fully implemented in CF
     { 0, 0, 0, NULL },                // MULTITYPE_VTAIL4

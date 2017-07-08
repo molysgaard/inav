@@ -217,6 +217,10 @@ static const motorMixer_t mixerHex6X[] = {
 };
 #endif
 
+static const motorMixer_t mixerSingleProp[] = {
+    { 1.0f,  0.0f,  0.0f, 0.0f },
+};
+
 static const motorMixer_t mixerDualProp[] = {
     { 1.0f,  0.0f,  0.0f, 0.0f },
     { 1.0f,  0.0f,  0.0f, 0.0f },
@@ -259,7 +263,7 @@ const mixer_t mixers[] = {
         { .motorCount=0, .useServo=false, .motor=NULL, .enabled=false },           // MIXER_OCTOFLATP
         { .motorCount=0, .useServo=false, .motor=NULL, .enabled=false },           // MIXER_OCTOFLATX
     #endif
-    { .motorCount=2, .useServo=true,  .motor=mixerDualProp, .enabled=true },       // * MIXER_AIRPLANE
+    { .motorCount=1, .useServo=true,  .motor=mixerSingleProp, .enabled=true },       // * MIXER_AIRPLANE
     { .motorCount=0, .useServo=true,  .motor=NULL, .enabled=false },               // * MIXER_HELI_120_CCPM -> disabled, never fully implemented in CF
     { .motorCount=0, .useServo=true,  .motor=NULL, .enabled=false },               // * MIXER_HELI_90_DEG -> disabled, never fully implemented in CF
     #if !defined(DISABLE_UNCOMMON_MIXERS)
