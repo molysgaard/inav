@@ -103,8 +103,8 @@ static bool servoFilterIsSet;
 // mixer rule format servo, input, rate, speed, min, max, box
 static const servoMixer_t servoMixerAirplane[] = {
     { 0, INPUT_STABILIZED_ROLL,  100, 0, 0, 100 },
-    { 1,      INPUT_STABILIZED_YAW,   100, 0, 0, 100 },
-    { 2,    INPUT_STABILIZED_PITCH, 100, 0, 0, 100 },
+    { 1,      INPUT_STABILIZED_YAW,   -100, 0, 0, 100 },
+    { 2,    INPUT_STABILIZED_PITCH, -100, 0, 0, 100 },
 };
 
 static const servoMixer_t servoMixerFlyingWing[] = {
